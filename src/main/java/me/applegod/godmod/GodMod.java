@@ -1,6 +1,9 @@
 package me.applegod.godmod;
 
 import com.mojang.logging.LogUtils;
+import me.applegod.godmod.hud.HudOverlay;
+import net.minecraft.client.Minecraft;
+import net.minecraftforge.client.event.RegisterGuiOverlaysEvent;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -27,7 +30,7 @@ public class GodMod
 
     private void commonSetup(final FMLCommonSetupEvent event)
     {
-
+        //lol
     }
 
     @Mod.EventBusSubscriber(modid = MODID, bus = Mod.EventBusSubscriber.Bus.MOD)
@@ -38,5 +41,11 @@ public class GodMod
         {
 
         }
+
+        @SubscribeEvent
+        public static void registerGuiOverlays(RegisterGuiOverlaysEvent event){
+            event.registerAboveAll("information", HudOverlay.HUD_OVERLAY);
+        }
+
     }
 }
